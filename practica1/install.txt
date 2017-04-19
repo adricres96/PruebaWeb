@@ -1,0 +1,110 @@
+						Instalación y despliegue Tomcat
+===============================================================================
+
+Instalamos el servidor Tomcat desde línea de comandos:
+
+$> sudo apt install tomcat7
+
+Instalará las dependencias de Java y creará un usuario con nombre [tomcat7]
+Modificamos el fichero de configuración [/etc/default/tomcat7] para definir
+la memoria que queremos que use nuestro servidor de Tomcat. Estos son los atributos
+Xmx y MaxPermSize:
+
+$> sudo vi /etc/default/tomcat7
+
+Añadimos en el fichero	:
+--------------------------------------------------------------------------------
+JAVA_OPTS="-Djava.security.egd=file:/dev/./urandom -Djava.awt.headless=true \ 
+-Xmx512m -XX:MaxPermSize=256m -XX:+UseConcMarkSweepGC"
+--------------------------------------------------------------------------------
+
+Saldrá el siguiente mensaje:
+-------------------------------------------------------------------------------
+It works !
+
+If you're seeing this page via a web browser, it means you've setup Tomcat 
+successfully. Congratulations!
+
+This is the default Tomcat home page. It can be found on the local filesystem 
+at: /var/lib/tomcat7/webapps/ROOT/index.html
+
+Tomcat7 veterans might be pleased to learn that this system instance of Tomcat 
+is installed with CATALINA_HOME in /usr/share/tomcat7 and CATALINA_BASE in 
+/var/lib/tomcat7, following the rules from /usr/share/doc/tomcat7-common/RUNNING.txt.gz.
+
+You might consider installing the following packages, if you haven't already done so:
+
+tomcat7-docs: This package installs a web application that allows to browse the Tomcat 7 
+documentation locally. Once installed, you can access it by clicking here.
+
+tomcat7-examples: This package installs a web application that allows to access the Tomcat 
+7 Servlet and JSP examples. Once installed, you can access it by clicking here.
+
+tomcat7-admin: This package installs two web applications that can help managing this 
+Tomcat instance. Once installed, you can access the manager webapp and the host-manager webapp.
+
+NOTE: For security reasons, using the manager webapp is restricted to users with role 
+"manager-gui". The host-manager webapp is restricted to users with role "admin-gui". 
+Users are defined in /etc/tomcat7/tomcat-users.xml.
+-------------------------------------------------------------------------------
+
+Instalamos los paquetes adicionales que nos recomiendan (documentación, ejemplos de JSP
+panel de admin login):
+
+$> sudo apt(-get en Ubuntu < 16.0.0) install tomcat7-docs tomcat7-admin tomcat7-examples
+
+En el mensaje anterior hace referencia a estos paquetes para poder tener acceso a ellos
+localmente. Directorios de instalación: 
+    · /usr/share/tomcat7-examples
+    · /usr/share/tomcat7-admin
+    · /usr/share/tomcat7-docs
+
+Por ejemplo para acceder a documentación localmente
+
+    · http://localhost:8080/docs/
+
+Para ejemplos de JSP:
+
+    · http://localhost:8080/examples/
+
+Lo demás son paneles de login para el admin.
+
+	· tomcat7-admin (manager-webapp): Tomcat Web Application Manager. Panel para manejar el servidor web y 
+	  las aplicaciones Java.
+	· tomcat7-admin (host-manager): Tomcat Virtual Host Manager.
+
+Seguidamente procedemos a la instalación del JDK (Java Deveplopment Kit) si no lo tenemos
+instalado. Es necesario para desarollar aplicaciones java en nuestro servidor Tomcat.
+
+$> sudo apt-get install default-jdk
+
+Tomcat recomimenda instalar Apache Ant para desarrolar aplicaciones en java. También es 
+recomendable instalar git (control de versiones):
+
+$> sudo apt install ant git
+
+En cuanto a la configuración de Tomcat, configuraremos el web manager interface instalado
+previamente. Añadimos un login a nuestro servidor Tomcat, para ello:
+
+$> sudo vi /etc/tomcat7/tomcat-users.xml
+
+Por ejemplo, añadimos en la sección <tomcat-users> un usuario admin que posee los roles de admin-gui
+y manager-gui:
+--------------------------------------------------------------------------------
+<tomcat-users>
+	<user username="admin" password="S1stinf01" roles="manager-gui,admin-gui"/>
+</tomcat-users>
+--------------------------------------------------------------------------------
+
+Web Application Manager es usado para manejar aplicaciones Java. Se puede empezar,
+parar, recargar, desplegar y quitar dichas aplicaciones. También se pueden hacer
+diagnosticos de nuestras aplicaciones.
+
+En Virtual Host Manager se pueden añadir hosts virtuales para servir las aplicaciones en 
+ellos.
+
+Para desplegar HTML en nuestro servidor tomcat7 los copiamos en:
+
+	# [/var/lib/tomcat7/webapps/ROOT]
+
+

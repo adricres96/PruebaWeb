@@ -1,0 +1,135 @@
+<html lang="es">
+	<head>
+		<title> Keops </title>
+		<meta charset="UTF-8">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:100,500,700|Oswald:300,400,700" rel="stylesheet">
+		<link rel="shortcut icon" type="image/x-icon" href="imagenes/internet.ico"> 
+		<meta name="descripcion" content="Compra venta de paginas web">
+		<link rel="stylesheet" type="text/css" href="CSS/Perfil.css">
+		
+	</head>
+
+	<body>
+		<header> 
+			<img src="imagenes/internet.ico" class="icono" alt="icono empresa" > 
+			<img src="imagenes/logo.png" class="logo'" alt="logo empresa" > 
+			<input type="text" placeholder="¿ Qué estas buscando ?" maxlength="20" name="Buscar" class="searchbar">
+			<select name='scat' id='scat' class='category'  tabindex="2">
+				<option value='0' selected='selected'>Todas las categorías</option>
+				<option class="level-0" value="10">Aplicaciones Android/iOS</option>
+				<option class="level-0" value="11">Dominios</option>
+				<option class="level-0" value="3">Páginas Web</option>
+				<option class="level-0" value="12">Publicidad</option>
+				<option class="level-0" value="164">Redes Sociales</option>
+				<option class="level-0" value="13">Servicios Freelance</option>
+			</select>
+			<button class="botonLupa" type="submit"> <img src="imagenes/LUPA.png" class="lupa" alt="Buscar boton"  > </button>
+				<ul class="opciones">
+					<li><a href="#">Vende</a></li>
+					<li><a href="#">Registrate</a></li>
+					<li><a href="#">Identificate</a></li>
+				</ul>
+			
+			<nav>
+			<ul class="navegacion">
+				<li><a href="#">home</a></li>
+				<li><a href="#">busqueda avanzada</a></li>
+				<li><a href="#">foros</a></li>
+			</ul>
+
+
+
+			
+			</nav>
+			
+		</header>
+		<!--La imagen hay que cuadrarla en el estilos.css para que no exceda del tamanyo de la pantalla-->
+		<div class="infoUsuario">
+			<h1> Mi perfil </h1></br>
+				<img src="imagenes/userFoo.jpg" class="imgUser" alt="Foto del usuario">
+				<div class="textoDerFoto" >
+					Nombre de usuario:	Foo User </br>
+					Email: foo_user@unizar.es </br>
+					Tipo de dominios en venta: Páginas webs consolidadas</br>
+					Fecha de registro: 12/09/2016 </br>
+					Fecha de nacimiento: 17/03/1996 </br>
+					Datos bancarios: 74**-****-****-*****
+				</div></br>
+			
+				<div class="misDominios">
+					<a class="editarPerfil" href=""> Editar mi perfil </a>
+					<a class="borrarUsuario" href=""> Borrar Usuario </a>
+					<h2>Dominios en venta</h2>
+						<h3>Forocoches</h3>
+						<p>
+						Dia de puesta en venta: 15/09/2016</br>
+						URL: <a href="http://www.forocoches.com/" target="_blank"> Forocoches </a></br>
+						Puja actual: 54.871€</br>
+						Dias para que finalice la puja: 45</br>
+						</p>
+						<h4>Hackers News</h4>
+						<p>
+						Dia de puesta en venta: 13/09/2016</br>
+						URL: <a href="https://news.ycombinator.com/" target="_blank"> Hacker News </a></br>
+						Puja actual: 1.000.000€</br>
+						Dias para que finalice la puja: 78</br>
+						</p>
+					<a class="nuevoDomPerfil" href="vende.html" > + Añadir nuevo dominio a la venta </a><br>
+				</div>
+			</div>
+		</body>
+
+		<!-- El footer seria como el pie de pagina, hay que modificarlo desde el estilos.css -->
+		<footer>
+			<nav>
+				<ul>
+					<li>
+						<div class="footerbox">
+							<nav>
+								<ul>
+									<li> Comprar </li>
+									<li><a href="#">Manual de Comprador</a></li>
+								</ul>
+							</nav>
+						</div>
+					</li>
+					<li>
+						<div class="footerbox">
+							<nav>
+								<ul>
+									<li>Vender</li>
+									<li><a href="#">Manual de Vendedor</a></li>
+									<li><a href="#">Precios</a></li>
+								</ul>
+							</nav>
+						</div>
+					</li>
+					<li>
+						<div class="footerbox">
+							<nav>
+								<ul>
+									<li>Sobre Nosotros</li>
+									<li><a href="#">¿ Quién somos ? </a></li>
+								</ul>
+							</nav>
+						</div>
+					</li>
+					<li>
+						<div class="footerbox">
+							<nav>
+								<ul>
+									<li>Legal</li>
+									<li><a href="#">Terminos y condiciones</a></li>
+								</ul>
+							</nav>
+						</div>
+					</li>
+						
+				</ul>
+			</nav>
+			<div class="trampa"> -
+			</div>
+			
+		</footer>
+
+</html>
